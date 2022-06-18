@@ -1,0 +1,10 @@
+1. Set up a new Java project in IntelliJ
+2. Go ahead and create your first class and include some properties and methods
+3. Place your cursor on the same line as the class name, and control click or control return, then select Generate, and generate Test
+or, select the Code tab and Generate test.
+4. You might get a pop up that says "No Test Roots Found, Create test in the same source root". Click OK
+5. Then, you should get a pop up with some options.
+From the dropdown menu, select JUnit 4, on the warning "JUnit 4 library not found in the module", click "FIX"
+Check the boxes for setup/Before and tearDown/After and click whichever methods you want to test
+If you didn't click FIX, go to File -- Project Structure -- Libraries -- click the plus + -- From Maven -- search for JUnit 4, most recent version
+6. Go to File -- Project Structure -- Modules, and make sure the JUnit says compile for the scope, not Test
