@@ -11,14 +11,14 @@ public class introToLambda {
 
         Employee mary = new Employee("Mary Jones", 30);
         Employee charlie = new Employee("Charlie Brown", 21);
-        Employee layla = new Employee("Layla Clapton", 40);
-        Employee sarah = new Employee("Sarah Green", 35);
+        Employee ada = new Employee("Ada Lovelace", 40);
+        Employee grace = new Employee("Grace Hopper", 35);
 
         List<Employee> employees = new ArrayList<>();
         employees.add(mary);
         employees.add(charlie);
-        employees.add(layla);
-        employees.add(sarah);
+        employees.add(ada);
+        employees.add(grace);
 
         Collections.sort(employees, (employee1, employee2) ->
                 employee1.getName().compareTo(employee2.getName()));
