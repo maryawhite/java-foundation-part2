@@ -1,61 +1,35 @@
 package com.mwhite;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
 public class introToLambdaPt2 {
 
     public static void main(String[] args) {
-
-        Employee mary = new Employee("Mary Jones", 30);
-        Employee charlie = new Employee("Charlie Brown", 21);
-        Employee ada = new Employee("Ada Lovelace", 40);
-        Employee grace = new Employee("Grace Hopper", 35);
-
-        List<Employee> employees = new ArrayList<>();
-        employees.add(mary);
-        employees.add(charlie);
-        employees.add(ada);
-        employees.add(grace);
-
-        Collections.sort(employees, (employee1, employee2) ->
-                employee1.getName().compareTo(employee2.getName()));
-        for (Employee employee : employees) {
-            System.out.println(employee.getName());
-        }
-
-        UpperConcat uc = (s1, s2) -> s1.toUpperCase() + " " + s2.toUpperCase();
-        String sillyString = doStringStuff(uc, employees.get(0).getName(), employees.get(1).getName());
-        System.out.println(sillyString);
+        AnotherClass anotherClass = new AnotherClass();
+        String s = anotherClass.doSomething();
+        System.out.println(s);
     }
 
     public final static String doStringStuff(UpperConcat uc, String s1, String s2) {
         return uc.upperAndConcat(s1, s2);
     }
-
 }
-    class Employee {
-        private String name;
-        private int age;
 
-        public Employee(String name, int age) {
-            this.name = name;
-            this.age = age;
-        }
+//Remember: //Lamdas can be used with interfaces that have only one method* that has to be implemented
+interface UpperConcat {
+    public String upperAndConcat(String s1, String s2);
+}
 
-        public String getName() {
-            return name;
-        }
-
-        public int getAge() {
-            return age;
-        }
+class AnotherClass {
+    public String doSomething() {
+        UpperConcat uc = (s1, s2) -> {
+            System.out.println("The lambda expressions class is " + getClass().getSimpleName());
+            String result = s1.toUpperCase() + s2.toUpperCase();
+            return result;
+        };
+        System.out.println("The AnotherClass class's name is " + getClass().getSimpleName());
+        //the lambda isn't a class, the lambda is treated like a nested block of code and has the same scope as a nested block
+        return introToLambdaPt2.doStringStuff(uc,"String1", "String2");
     }
-
-    interface UpperConcat {
-        public String upperAndConcat(String s1, String s2);
-    }
+}
 
 
 //from Java Masterclass by Tim Buchalka on Udemy
