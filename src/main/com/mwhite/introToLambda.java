@@ -25,6 +25,21 @@ public class introToLambda {
         for(Employee employee : employees) {
             System.out.println(employee.getName());
         }
+        System.out.println("* * * *");
+        for(Employee employee : employees) {
+            System.out.println(employee.getName());
+            new Thread(() -> System.out.println(employee.getAge())).start();
+            //Note that this does print the ages, but in a strange order
+            //the start method causes 2 threads to be running concurrently
+        }
+
+        System.out.println("- - - -");
+        employees.forEach(employee -> {
+            System.out.println(employee.getName());
+            System.out.println(employee.getAge());
+        });
+
+
     }
 
     static class Employee {
