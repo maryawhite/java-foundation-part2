@@ -1,42 +1,27 @@
 package com.mwhite;
 
-import java.util.ArrayList;
 import java.util.List;
 
-//from https://www.techiedelight.com/find-min-max-value-unsorted-list-integers-java/
+/**
+ * This example shows how you can find the minimum value in a list of numbers by first setting a variable to
+ * a maximum value and then using a loop to compare that number to each number in the list,
+ * For example, your list contains 25, 5, and 34. The variable is initially set to 2147483647 (Integer.MAX_VALUE).
+ * 2147483647 is greater than 25 (true), so the new min is 25. The loop continues, 25 is greater than 5 so 5 becomes the new min,
+ * the loop continues, 5 is not greater than 34 so 5 remains the min.
+ * resources: https://www.techiedelight.com/find-min-max-value-unsorted-list-integers-java/
+ */
 public class FindMinValue {
 
     // Naive method to find the minimum value in an unsorted list in Java
     public static Integer getMin(List<Integer> list)
     {
-        // initialize `min` to some maximum value
         Integer min = Integer.MAX_VALUE;
 
-        // loop through every element in the list and
-        // compare the minimum found so far with the current value
-        for (Integer i: list)
-        {
-            // update min if found to be more than the current element
-            if (min > i) {
-                min = i;
+        for (Integer num: list) {
+            if (min > num) {
+                min = num;
             }
         }
-
         return min;
     }
-
-
-    public static void main(String[] args) {
-        List<Integer> aListOfNumbers = new ArrayList<>();
-        aListOfNumbers.add(25);
-        aListOfNumbers.add(5);
-        aListOfNumbers.add(34);
-        aListOfNumbers.add(13);
-        aListOfNumbers.add(55);
-        aListOfNumbers.add(2);
-
-        System.out.println(getMin(aListOfNumbers));
-
-    }
-
 }
